@@ -35,9 +35,19 @@ def main():
         else:
             print("Player 2: ", end="")
         print("Which cell to mark? i:[1..3], j:[1..3]: ")
-        i, j = map(int, input().split())
-        i -= 1
-        j -= 1
+        while True:
+            i, j = map(int, input().split())
+            i -= 1
+            j -= 1
+            # 检查坐标是否在有效范围
+            if not (0 <= i < 3 and 0 <= j < 3):
+                print("坐标必须在1-3范围内，请重新输入：")
+                continue
+            # 检查单元格是否已被占用
+            if game[i][j] != ' ':
+                print("该单元格已被占用，请重新输入：")
+                continue
+            break
         if not turn:
             game[i][j] = 'X'
         else:
