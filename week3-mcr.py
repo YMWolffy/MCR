@@ -25,7 +25,10 @@ def main():
     game = [[' ' for _ in range(3)] for _ in range(3)]  # Tic-tac-toe board
     player1 = 'X'
     player2 = 'O'
-    turn = False  # False for player 1's turn, True for player 2's turn. Player 1 first.
+    # 修改 1: 将 turn 的初始值从 False 改为 True
+    # 你的原代码中, 循环一上来就执行 turn = not turn, 这会导致玩家2('O')先手。
+    # 将初始值改为True, 第一次执行 not turn 后就会变为 False, 从而让玩家1('X')先手。
+    turn = True  # False for player 1's turn, True for player 2's turn. Player 1 first.
     print("X = Player 1")
     print("O = Player 2")
     for n in range(9):
