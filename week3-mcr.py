@@ -59,7 +59,7 @@ def main():
         for row in game:
             print(" ".join(row))
         if is_win(game):
-            print("Win!")
+            print("Good Win!")
             break  # Terminate the game
         if n == 8:  # All cells have been filled
             print("Tie!")
