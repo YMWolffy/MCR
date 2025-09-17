@@ -52,14 +52,17 @@ def main():
             game[i][j] = 'X'
         else:
             game[i][j] = 'O'
+        # 将打印棋盘的步骤提前
+        # 这样可以在宣布获胜或平局时, 显示出最后一步棋的盘面。
+        for row in game:
+            print(" ".join(row))
         if is_win(game):
             print("Win!")
             break  # Terminate the game
         if n == 8:  # All cells have been filled
             print("Tie!")
         # Show the game board
-        for row in game:
-            print(" ".join(row))
+        
 
 if __name__ == "__main__":
     main()
